@@ -1,0 +1,2 @@
+Librarian must  Add Book to Catalog. Member must  Check Out Book. Member must
+Return Book. Member must  Renew Membership.

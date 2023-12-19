@@ -1,0 +1,19 @@
+@startuml RestaurantOrderingDiagram
+left to right direction
+
+actor "Customer" as customer
+actor "Waiter" as waiter
+actor "Chef" as chef
+
+rectangle "Restaurant Ordering System" {
+  usecase "Place Order" as placeOrder
+  usecase "Prepare Food" as prepareFood
+  usecase "Serve Order" as serveOrder
+  usecase "Manage Menu" as manageMenu
+
+  customer -- placeOrder
+  waiter -- serveOrder
+  chef -- prepareFood
+  chef -- manageMenu
+}
+@enduml

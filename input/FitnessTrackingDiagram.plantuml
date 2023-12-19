@@ -1,0 +1,19 @@
+@startuml FitnessTrackingDiagram
+left to right direction
+
+actor "User" as user
+actor "Fitness Trainer" as trainer
+actor "App" as app
+
+rectangle "Fitness Tracking App" {
+  usecase "Set Fitness Goals" as setGoals
+  usecase "Track Workouts" as trackWorkouts
+  usecase "Generate Reports" as generateFitnessReports
+  usecase "Provide Guidance" as provideGuidance
+
+  user -- setGoals
+  user -- trackWorkouts
+  app -- generateFitnessReports
+  trainer -- provideGuidance
+}
+@enduml

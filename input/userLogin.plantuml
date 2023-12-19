@@ -1,0 +1,17 @@
+@startuml UseCaseDiagram
+
+left to right direction
+
+actor "User" as user
+
+rectangle "System" {
+  usecase "Handle User Logins Securely" as handleLogins
+  usecase "Allow File Uploads" as allowUploads
+  usecase "Support Multiple User Roles" as supportRoles
+
+  user -- handleLogins
+  user -- allowUploads
+  user -- supportRoles
+}
+
+@enduml

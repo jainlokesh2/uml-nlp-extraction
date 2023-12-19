@@ -1,0 +1,24 @@
+@startuml DiagramName
+left to right direction
+
+actor "Guest" as guest
+actor "Registered User" as user
+actor "Administrator" as admin
+actor "Payment Gateway" as gateway
+
+rectangle "Online Shopping System" {
+  usecase "Browse Products" as browse
+  usecase "Add to Cart" as addToCart
+  usecase "Remove from Cart" as removeFromCart
+  usecase "Checkout" as checkout
+  usecase "Manage Inventory" as manageInventory
+  usecase "Process Payment" as processPayment
+
+  guest -- browse
+  user -- addToCart
+  user -- removeFromCart
+  user -- checkout
+  admin -- manageInventory
+  gateway -- processPayment
+}
+@enduml

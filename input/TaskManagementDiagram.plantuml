@@ -1,0 +1,19 @@
+@startuml TaskManagementDiagram
+left to right direction
+
+actor "Team Leader" as teamLeader
+actor "Team Member" as teamMember
+actor "Project Manager" as projectManager
+
+rectangle "Task Management System" {
+  usecase "Create Task" as createTask
+  usecase "Assign Task" as assignTask
+  usecase "Complete Task" as completeTask
+  usecase "Generate Reports" as generateReports
+
+  teamLeader -- createTask
+  teamLeader -- assignTask
+  teamMember -- completeTask
+  projectManager -- generateReports
+}
+@enduml

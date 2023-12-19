@@ -1,0 +1,19 @@
+@startuml EventPlanningDiagram
+left to right direction
+
+actor "Event Organizer" as organizer
+actor "Vendor" as vendor
+actor "Client" as client
+
+rectangle "Event Planning System" {
+  usecase "Create Event Proposal" as createProposal
+  usecase "Hire Vendors" as hireVendors
+  usecase "Client Approval" as clientApproval
+  usecase "Coordinate Logistics" as coordinateLogistics
+
+  organizer -- createProposal
+  organizer -- hireVendors
+  client -- clientApproval
+  vendor -- coordinateLogistics
+}
+@enduml

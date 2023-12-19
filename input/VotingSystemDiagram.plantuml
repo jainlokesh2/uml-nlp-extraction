@@ -1,0 +1,19 @@
+@startuml VotingSystemDiagram
+left to right direction
+
+actor "Voter" as voter
+actor "Election Commission" as electionCommission
+actor "Candidate" as candidate
+
+rectangle "Voting System" {
+  usecase "Register to Vote" as registerVote
+  usecase "Conduct Election" as conductElection
+  usecase "Vote Counting" as voteCounting
+  usecase "Declare Results" as declareResults
+
+  voter -- registerVote
+  electionCommission -- conductElection
+  candidate -- voteCounting
+  electionCommission -- declareResults
+}
+@enduml

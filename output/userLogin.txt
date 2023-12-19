@@ -1,0 +1,2 @@
+User must  Handle User Logins Securely. User must  Allow File Uploads. User must
+Support Multiple User Roles.

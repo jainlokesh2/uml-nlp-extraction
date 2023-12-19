@@ -1,0 +1,2 @@
+Warehousemanager must  Track Inventory. Supplier must  Order Stock. Salesteam
+must  Update Prices. Warehousemanager must  Generate Reports.

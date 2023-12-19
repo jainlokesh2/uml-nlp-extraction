@@ -1,0 +1,3 @@
+Manager must  Create Project. Manager must  Assign Tasks. Stakeholder must
+Generate Reports. Teammember must  Collaborate. Teammember must  Review
+Progress.

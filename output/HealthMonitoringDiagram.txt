@@ -1,0 +1,3 @@
+Patient, provider must  Record Vital Signs. Patient, provider must  Schedule
+Appointments. Patient, provider must  View Health History. System must  Alert
+Emergency Services.

@@ -1,0 +1,23 @@
+@startuml TravelBookingDiagram
+left to right direction
+
+actor "Traveler" as traveler
+actor "Booking Agent" as agent
+actor "System" as system
+
+rectangle "Travel Booking System" {
+  usecase "Search Flights" as searchFlights
+  usecase "Book Ticket" as bookTicket
+  usecase "Cancel Reservation" as cancelReservation
+  usecase "Manage Preferences" as managePreferences
+  usecase "Generate Itinerary" as generateItinerary
+
+  traveler -- searchFlights
+  traveler -- bookTicket
+  traveler -- cancelReservation
+  traveler -- managePreferences
+  system -- generateItinerary
+  agent -- bookTicket
+  agent -- cancelReservation
+}
+@enduml

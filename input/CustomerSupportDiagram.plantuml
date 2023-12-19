@@ -1,0 +1,19 @@
+@startuml CustomerSupportDiagram
+left to right direction
+
+actor "Customer" as customer
+actor "Support Agent" as supportAgent
+actor "Manager" as manager
+
+rectangle "Customer Support System" {
+  usecase "Submit Ticket" as submitTicket
+  usecase "Resolve Issue" as resolveIssue
+  usecase "Escalate Ticket" as escalateTicket
+  usecase "Monitor Performance" as monitorPerformance
+
+  customer -- submitTicket
+  supportAgent -- resolveIssue
+  manager -- escalateTicket
+  manager -- monitorPerformance
+}
+@enduml

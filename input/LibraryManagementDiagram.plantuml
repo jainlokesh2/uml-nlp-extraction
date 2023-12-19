@@ -1,0 +1,18 @@
+@startuml LibraryManagementDiagram
+left to right direction
+
+actor "Librarian" as librarian
+actor "Library Member" as member
+
+rectangle "Library Management System" {
+  usecase "Add Book to Catalog" as addBook
+  usecase "Check Out Book" as checkOutBook
+  usecase "Return Book" as returnBook
+  usecase "Renew Membership" as renewMembership
+
+  librarian -- addBook
+  member -- checkOutBook
+  member -- returnBook
+  member -- renewMembership
+}
+@enduml

@@ -1,0 +1,21 @@
+@startuml HotelReservationDiagram
+left to right direction
+
+actor "Guest" as guest
+actor "Receptionist" as receptionist
+actor "Manager" as manager
+
+rectangle "Hotel Reservation System" {
+  usecase "Book Room" as bookRoom
+  usecase "Check-In" as checkIn
+  usecase "Check-Out" as checkOut
+  usecase "Manage Reservations" as manageReservations
+
+  guest -- bookRoom
+  guest -- checkIn
+  guest -- checkOut
+  receptionist -- checkIn
+  receptionist -- checkOut
+  manager -- manageReservations
+}
+@enduml

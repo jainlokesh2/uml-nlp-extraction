@@ -1,0 +1,19 @@
+@startuml LearningPlatformDiagram
+left to right direction
+
+actor "Student" as student
+actor "Instructor" as instructor
+actor "Administrator" as administrator
+
+rectangle "Online Learning Platform" {
+  usecase "Enroll in Course" as enrollCourse
+  usecase "Submit Assignments" as submitAssignments
+  usecase "Grade Assignments" as gradeAssignments
+  usecase "Manage Courses" as manageCourses
+
+  student -- enrollCourse
+  student -- submitAssignments
+  instructor -- gradeAssignments
+  administrator -- manageCourses
+}
+@enduml

@@ -1,0 +1,19 @@
+@startuml BugTrackingDiagram
+left to right direction
+
+actor "Developer" as developer
+actor "Tester" as tester
+actor "Project Manager" as projectManager
+
+rectangle "Bug Tracking System" {
+  usecase "Submit Bug Report" as submitBug
+  usecase "Assign Bug" as assignBug
+  usecase "Verify Fix" as verifyFix
+  usecase "Generate Reports" as generateBugReports
+
+  tester -- submitBug
+  developer -- assignBug
+  tester -- verifyFix
+  projectManager -- generateBugReports
+}
+@enduml

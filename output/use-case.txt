@@ -1,0 +1,3 @@
+Guest must  Browse Products. User must  Add to Cart. User must  Remove from
+Cart. User must  Checkout. Admin must  Manage Inventory. Gateway must  Process
+Payment.

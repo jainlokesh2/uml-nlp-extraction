@@ -1,0 +1,21 @@
+@startuml SocialMediaDiagram
+left to right direction
+
+actor "User" as user
+actor "Moderator" as moderator
+actor "Admin" as admin
+
+rectangle "Social Media Platform" {
+  usecase "Create Post" as createPost
+  usecase "Like/Dislike Post" as likePost
+  usecase "Report Content" as reportContent
+  usecase "Moderate Content" as moderateContent
+  usecase "Administrate Users" as administrateUsers
+
+  user -- createPost
+  user -- likePost
+  user -- reportContent
+  moderator -- moderateContent
+  admin -- administrateUsers
+}
+@enduml

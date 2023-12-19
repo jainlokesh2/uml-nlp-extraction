@@ -1,0 +1,2 @@
+Tester must  Submit Bug Report. Developer must  Assign Bug. Tester must  Verify
+Fix. Projectmanager must  Generate Reports.

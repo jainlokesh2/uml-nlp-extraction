@@ -1,0 +1,22 @@
+@startuml HealthMonitoringDiagram
+left to right direction
+
+actor "Patient" as patient
+actor "Healthcare Provider" as provider
+actor "System" as system
+
+rectangle "Health Monitoring System" {
+  usecase "Record Vital Signs" as recordVitals
+  usecase "Schedule Appointments" as scheduleAppointments
+  usecase "View Health History" as viewHistory
+  usecase "Alert Emergency Services" as alertEmergency
+
+  patient -- recordVitals
+  patient -- scheduleAppointments
+  patient -- viewHistory
+  system -- alertEmergency
+  provider -- recordVitals
+  provider -- scheduleAppointments
+  provider -- viewHistory
+}
+@enduml

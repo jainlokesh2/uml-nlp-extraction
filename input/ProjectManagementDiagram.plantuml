@@ -1,0 +1,21 @@
+@startuml ProjectManagementDiagram
+left to right direction
+
+actor "Project Manager" as manager
+actor "Team Member" as teamMember
+actor "Stakeholder" as stakeholder
+
+rectangle "Project Management System" {
+  usecase "Create Project" as createProject
+  usecase "Assign Tasks" as assignTasks
+  usecase "Generate Reports" as generateReports
+  usecase "Collaborate" as collaborate
+  usecase "Review Progress" as reviewProgress
+
+  manager -- createProject
+  manager -- assignTasks
+  teamMember -- collaborate
+  teamMember -- reviewProgress
+  stakeholder -- generateReports
+}
+@enduml

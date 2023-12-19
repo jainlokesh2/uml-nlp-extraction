@@ -1,0 +1,19 @@
+@startuml InventoryManagementDiagram
+left to right direction
+
+actor "Warehouse Manager" as warehouseManager
+actor "Supplier" as supplier
+actor "Sales Team" as salesTeam
+
+rectangle "Inventory Management System" {
+  usecase "Track Inventory" as trackInventory
+  usecase "Order Stock" as orderStock
+  usecase "Update Prices" as updatePrices
+  usecase "Generate Reports" as generateInventoryReports
+
+  warehouseManager -- trackInventory
+  supplier -- orderStock
+  salesTeam -- updatePrices
+  warehouseManager -- generateInventoryReports
+}
+@enduml
