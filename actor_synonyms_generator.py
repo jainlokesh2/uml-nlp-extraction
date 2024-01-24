@@ -13,6 +13,7 @@ from simplenlg.features import Feature
 class ActorSynonymsGenerator:
     @staticmethod
     def generate_actor_use_case_synonyms(plantuml_code):
+        #Pre-Processing & Tagging:
         use_cases = re.findall(r'usecase "(.*?)" as (\w+)', plantuml_code)
         actor_connections = re.findall(r'(\w+) -- (\w+)', plantuml_code)
 
@@ -32,7 +33,6 @@ class ActorSynonymsGenerator:
             actor_synonyms_list.append([actor_names, use_case[0], synonyms])
 
         return actor_synonyms_list
-
     @staticmethod
     def extract_keywords_from_uml_description(uml_description):
         keywords = word_tokenize(uml_description, language='english')
@@ -54,7 +54,7 @@ class ActorSynonymsGenerator:
 
                 passage_lines = []
                 for role, actions, synonyms in actor_synonyms_list:
-                    # Create more descriptive sentences
+                    # Sentence Planning:
                     p = nlgFactory.createClause()
                     p.setSubject(role.capitalize())
                     action_parts = actions.lower().split(maxsplit=1)  # This will split at the first space
@@ -63,15 +63,16 @@ class ActorSynonymsGenerator:
                     else:
                         # Default verb to 'do' if no clear verb is given
                         action_verb, action_object = 'do', actions.lower()
+                    #NL Requirements Extraction:
                     p.setVerb(action_verb)
                     objectNP = nlgFactory.createNounPhrase("the", action_object)
                     p.setObject(objectNP)
                     p.setFeature(Feature.MODAL, "must")
+                    #Realization:
                     role_description = realiser.realiseSentence(p)
-
                     synonyms_description = "Synonyms for {}: {}.".format(actions, ', '.join(synonyms).lower()) if synonyms else "No synonyms available."
                     passage_lines.extend([role_description])
-
+                #Document Structure Definition:
                 passage = "\n".join(passage_lines)
                 output_file_path = os.path.join(output_path, os.path.splitext(filename)[0] + ".txt")
                 write_file(output_file_path, passage)
@@ -82,6 +83,7 @@ class ActorSynonymsGenerator:
             file_path = os.path.join(designed_output_path, os.path.splitext(filename)[0] + "_design.txt")
             designed_sentences = read_and_process_design_sentences(file_path)
             evaluation.evaluate_performance(designed_sentences, passage_lines)
+        #System Evaluation:
         average_scores = evaluation.get_average_scores()
         print("\nScores:")
         print(f' Accuracy: {average_scores["avg_accuracy"]:.2f}')
