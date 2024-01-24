@@ -1,0 +1,1 @@
+Student must enroll in a course.Student must submit assignments.Instructor must grade assignments.Administrator must manage courses.

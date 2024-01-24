@@ -1,3 +1,6 @@
-Guest must  Search Catalog. Member must  Check Out Book. Member must  Return
-Book. Member must  Renew Book. Librarian must  Manage Fines. Librarian must  Add
-New Book.
+Guest must search the catalog.
+Member must check the out book.
+Member must return the book.
+Member must renew the book.
+Librarian must manage the fine.
+Librarian must add the new book.

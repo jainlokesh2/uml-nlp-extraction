@@ -1,0 +1,1 @@
+Testers must have the capability to submit bug reports through the system.Developers should be able to assign a bug to themselves for resolution.Testers must have the ability to verify that a reported bug has been fixed.The system should allow Project Managers to generate various reports related to bug tracking and project progress.

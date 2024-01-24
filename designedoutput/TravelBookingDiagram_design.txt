@@ -1,0 +1,1 @@
+Traveler and agent must search flights, book tickets, cancel reservations, and manage preferences.Agent must book and cancel tickets on behalf of travelers.System must generate detailed itineraries post-booking or reservation changes.

@@ -1,2 +1,4 @@
-Voter must  Register to Vote. Electioncommission must  Conduct Election.
-Candidate must  Vote Counting. Electioncommission must  Declare Results.
+Voter must register the to vote.
+Electioncommission must conduct the election.
+Candidate must vote the counting.
+Electioncommission must declare the result.

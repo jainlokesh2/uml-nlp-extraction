@@ -1,2 +1,4 @@
-Guest must  Book Room. Guest, receptionist must  Check-In. Guest, receptionist
-must  Check-Out. Manager must  Manage Reservations.
+Guest must book the room.
+Guest, receptionist must do the check-in.
+Guest, receptionist must do the check-out.
+Manager must manage the reservation.

@@ -1,11 +1,14 @@
-# actor_synonyms_generator.py
 import os
 import re
 import textwrap
-from evaluation import evaluate_classification_performance, simulate_classification_predictions
-from util import read_file, write_file
+from evaluation import Evaluation
+from util import read_file, write_file , read_and_process_design_sentences
 from synonyms import get_stopwords, get_synonyms
 from nltk.tokenize import word_tokenize
+from simplenlg.lexicon import Lexicon
+from simplenlg.framework import NLGFactory
+from simplenlg.realiser import Realiser
+from simplenlg.features import Feature
 
 class ActorSynonymsGenerator:
     @staticmethod
@@ -14,14 +17,12 @@ class ActorSynonymsGenerator:
         actor_connections = re.findall(r'(\w+) -- (\w+)', plantuml_code)
 
         use_case_actors = {use_case[1]: [] for use_case in use_cases}
-
         for connection in actor_connections:
             actor, use_case = connection
             if use_case in use_case_actors:
                 use_case_actors[use_case].append(actor)
 
         actor_synonyms_list = []
-
         for use_case in use_cases:
             actors = use_case_actors.get(use_case[1], [])
             actor_names = ', '.join(actors)
@@ -38,9 +39,11 @@ class ActorSynonymsGenerator:
         return [get_synonyms(keyword) for keyword in keywords if keyword.lower() not in get_stopwords()]
 
     @staticmethod
-    def process_plantuml_files(input_path, output_path):
-        all_y_true = []
-        all_y_pred = []
+    def process_plantuml_files(input_path, output_path, designed_output_path):
+        evaluation = Evaluation()
+        lexicon = Lexicon.getDefaultLexicon()
+        nlgFactory = NLGFactory(lexicon)
+        realiser = Realiser(lexicon)
 
         for filename in os.listdir(input_path):
             if filename.endswith(".plantuml"):
@@ -51,27 +54,38 @@ class ActorSynonymsGenerator:
 
                 passage_lines = []
                 for role, actions, synonyms in actor_synonyms_list:
-                    role_description = f"{role.capitalize()} must  {actions}."
-                    synonyms_description = f"Synonyms for {actions}: {', '.join(synonyms).lower()}." if synonyms != "No synonyms available." else "No synonyms available."
+                    # Create more descriptive sentences
+                    p = nlgFactory.createClause()
+                    p.setSubject(role.capitalize())
+                    action_parts = actions.lower().split(maxsplit=1)  # This will split at the first space
+                    if len(action_parts) == 2:
+                        action_verb, action_object = action_parts
+                    else:
+                        # Default verb to 'do' if no clear verb is given
+                        action_verb, action_object = 'do', actions.lower()
+                    p.setVerb(action_verb)
+                    objectNP = nlgFactory.createNounPhrase("the", action_object)
+                    p.setObject(objectNP)
+                    p.setFeature(Feature.MODAL, "must")
+                    role_description = realiser.realiseSentence(p)
+
+                    synonyms_description = "Synonyms for {}: {}.".format(actions, ', '.join(synonyms).lower()) if synonyms else "No synonyms available."
                     passage_lines.extend([role_description])
 
                 passage = "\n".join(passage_lines)
-                wrapped_passage = textwrap.fill(passage, width=80)
-
                 output_file_path = os.path.join(output_path, os.path.splitext(filename)[0] + ".txt")
-                write_file(output_file_path, wrapped_passage)
+                write_file(output_file_path, passage)
 
-                # Extract keywords from the UML description
-                keywords = ActorSynonymsGenerator.extract_keywords_from_uml_description(plantuml_code)
+                #print(f"Passage generated and saved to {output_file_path}")
 
-                # Simulate classification labels based on keywords
-                y_true, y_pred = simulate_classification_predictions(keywords, actor_synonyms_list)
+            # Evaluate classification performance for all iterations
+            file_path = os.path.join(designed_output_path, os.path.splitext(filename)[0] + "_design.txt")
+            designed_sentences = read_and_process_design_sentences(file_path)
+            evaluation.evaluate_performance(designed_sentences, passage_lines)
+        average_scores = evaluation.get_average_scores()
+        print("\nScores:")
+        print(f' Accuracy: {average_scores["avg_accuracy"]:.2f}')
+        print(f' Precision: {average_scores["avg_precision"]:.2f}')
+        print(f' Recall: {average_scores["avg_recall"]:.2f}')
+        print(f' F1 Score: {average_scores["avg_f1"]:.2f}')
 
-                # Accumulate true and predicted labels
-                all_y_true.extend(y_true)
-                all_y_pred.extend(y_pred)
-
-                print(f"Passage generated and saved to {output_file_path}")
-
-        # Evaluate classification performance for all iterations
-        evaluate_classification_performance(all_y_true, all_y_pred)

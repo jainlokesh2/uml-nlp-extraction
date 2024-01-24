@@ -1,2 +1,4 @@
-Tester must  Submit Bug Report. Developer must  Assign Bug. Tester must  Verify
-Fix. Projectmanager must  Generate Reports.
+Tester must submit the bug report.
+Developer must assign the bug.
+Tester must verify the fix.
+Projectmanager must generate the report.

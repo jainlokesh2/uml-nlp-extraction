@@ -1,2 +1,5 @@
-User must  Create Post. User must  Like/Dislike Post. User must  Report Content.
-Moderator must  Moderate Content. Admin must  Administrate Users.
+User must create the post.
+User must like/dislike the post.
+User must report the content.
+Moderator must moderate the content.
+Admin must administrate the user.

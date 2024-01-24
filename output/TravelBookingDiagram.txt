@@ -1,3 +1,5 @@
-Traveler must  Search Flights. Traveler, agent must  Book Ticket. Traveler,
-agent must  Cancel Reservation. Traveler must  Manage Preferences. System must
-Generate Itinerary.
+Traveler must search the flight.
+Traveler, agent must book the ticket.
+Traveler, agent must cancel the reservation.
+Traveler must manage the preference.
+System must generate the itinerary.

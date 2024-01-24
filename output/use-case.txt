@@ -1,3 +1,6 @@
-Guest must  Browse Products. User must  Add to Cart. User must  Remove from
-Cart. User must  Checkout. Admin must  Manage Inventory. Gateway must  Process
-Payment.
+Guest must browse the product.
+User must add the to cart.
+User must remove the from cart.
+User must do the checkout.
+Admin must manage the inventory.
+Gateway must process the payment.

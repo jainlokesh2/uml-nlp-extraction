@@ -1,2 +1,4 @@
-Customer must  Place Order. Chef must  Prepare Food. Waiter must  Serve Order.
-Chef must  Manage Menu.
+Customer must place the order.
+Chef must prepare the food.
+Waiter must serve the order.
+Chef must manage the menu.

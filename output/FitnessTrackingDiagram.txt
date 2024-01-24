@@ -1,2 +1,4 @@
-User must  Set Fitness Goals. User must  Track Workouts. App must  Generate
-Reports. Trainer must  Provide Guidance.
+User must set the fitness goals.
+User must track the workouts.
+App must generate the report.
+Trainer must provide the guidance.

@@ -1,0 +1,1 @@
+Users must have the capability to create posts.Users must have the capability to like or dislike posts.Users must have the capability to report content.Moderators must have the responsibility to moderate content.Admins must have the authority to administrate users.

@@ -1,2 +1,3 @@
-User must  Handle User Logins Securely. User must  Allow File Uploads. User must
-Support Multiple User Roles.
+User must handle the user logins securely.
+User must allow the file uploads.
+User must support the multiple user roles.

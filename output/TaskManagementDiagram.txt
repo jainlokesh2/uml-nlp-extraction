@@ -1,2 +1,4 @@
-Teamleader must  Create Task. Teamleader must  Assign Task. Teammember must
-Complete Task. Projectmanager must  Generate Reports.
+Teamleader must create the task.
+Teamleader must assign the task.
+Teammember must complete the task.
+Projectmanager must generate the report.

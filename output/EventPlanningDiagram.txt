@@ -1,2 +1,4 @@
-Organizer must  Create Event Proposal. Organizer must  Hire Vendors. Client must
-Client Approval. Vendor must  Coordinate Logistics.
+Organizer must create the event proposal.
+Organizer must hire the vendor.
+Client must client the approval.
+Vendor must coordinate the logistics.

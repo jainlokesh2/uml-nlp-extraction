@@ -1,2 +1,4 @@
-Librarian must  Add Book to Catalog. Member must  Check Out Book. Member must
-Return Book. Member must  Renew Membership.
+Librarian must add the book to catalog.
+Member must check the out book.
+Member must return the book.
+Member must renew the membership.

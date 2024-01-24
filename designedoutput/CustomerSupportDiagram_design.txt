@@ -1,0 +1,1 @@
+Customers must have the capability to submit tickets through the Customer Support System.Support Agents should be able to resolve issues raised in tickets.Managers must have the authority to escalate tickets when necessary.The system should allow Managers to monitor performance and track key metrics related to customer support.

@@ -1,0 +1,1 @@
+User is required to authenticate credentials to access the system. The system shall ensure secure handling of login credentials and provide appropriate access based on user roles.

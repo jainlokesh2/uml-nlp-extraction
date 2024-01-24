@@ -1,0 +1,1 @@
+Patients and providers must have the capability to record vital signs.Patients and providers must have the capability to schedule appointments.Patients and providers must have the capability to view health history.The system must have the capability to alert emergency services.

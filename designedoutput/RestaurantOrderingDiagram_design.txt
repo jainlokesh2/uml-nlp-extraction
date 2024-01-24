@@ -1,0 +1,1 @@
+Customer must place an order.Chef must prepare food.Waiter must serve the order.Chef must manage the menu.
